@@ -8,10 +8,14 @@
   justify-content: center;
 
   z-index: 1000;
+
+  @media (max-width: 550px) {
+    padding: 1rem;
+  }
 }
 
 .modal {
-  background: white;
+  background: var(--white);
   padding: 2rem;
   border-radius: 16px;
   width: 100%;
