@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  gap: 8px;
+  background: #F0F4F7;
+  padding: 6px;
+  border-radius: 999px; /* pill */
+  width: fit-content;
+}
+
+.button {
+  border: none;
+  background: transparent;
+  padding: .75rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: var(--button);
+  color: var(--gray-200);
+  transition: all 0.2s ease;
+}
+
+.active {
+  background: #F3E8FF;
+  color: var(--purple-300);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  padding: .5rem 1rem;
+}
