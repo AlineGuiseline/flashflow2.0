@@ -5,7 +5,14 @@
 }
 
 .form h2 {
-  margin-bottom: 0.5rem;
+  font-size: var(--text-lg);
+  font-family: var(--title-font);
+  font-weight: 900;
+}
+
+.form p {
+  font-size: var(--text-md);
+  color: #566166;
 }
 
 .form input,
@@ -20,12 +27,67 @@
   min-height: 100px;
 }
 
-.form button {
-  margin-top: 0.5rem;
-  padding: 0.75rem;
+.componentArea {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.selectWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  border: 1px solid #d1d5db;
   border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+}
+
+.selectWrapper img {
+  width: 16px;
+  height: 16px;
+  opacity: 0.7;
+}
+
+.selectWrapper select {
   border: none;
-  background: #7c3aed;
-  color: white;
+  outline: none;
+  background: transparent;
+
+  width: 100%;
+  font-size: 14px;
   cursor: pointer;
+}
+
+.form label {
+  font-size: .625rem;
+  font-weight: 600;
+  color: #566166;
+  text-transform: uppercase;
+  letter-spacing: 1.04px;
+}
+
+.form button {
+  padding: 1rem 0;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: var(--button);
+  width: 100%;
+}
+
+.actionArea {
+  display: flex;
+  gap: .75rem;
+}
+
+.cancelBtn {
+  background: #E1E9EE;
+  color: #566166;
+}
+
+.saveBtn {
+  background: var(--gradient);
+  color: var(--white);
 }

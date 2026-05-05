@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Modal } from "../Modal/Modal";
 import styles from "./FlashcardModal.module.css";
+import folderIcon from "../../assets/folder-icon.svg";
 
 type FlashcardData = {
   question: string;
@@ -48,34 +49,66 @@ export function FlashcardModal({
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <form onSubmit={handleSubmit} className={styles.form}>
-        <h2>{initialData ? "Editar Flashcard" : "Novo Flashcard"}</h2>
+        <div className={styles.header}>
+          <h2>{initialData ? "Editar Flashcard" : "Criar Flashcard"}</h2>
+          <p>Organize seu conhecimento com precisão e clareza.</p>
+        </div>
 
-        <input
-          type="text"
-          placeholder="Pergunta"
-          value={question}
-          onChange={(e) => setQuestion(e.target.value)}
-          required
-        />
+        <div className={styles.componentArea}>
+          <label htmlFor="category">Categoria</label>
+          <div className={styles.selectWrapper}>
+            <img src={folderIcon} alt="Categoria" />
 
-        <textarea
-          placeholder="Resposta"
-          value={answer}
-          onChange={(e) => setAnswer(e.target.value)}
-          required
-        />
+            <select
+              id="category"
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+              required
+            >
+              <option value="" disabled>
+                Selecione a categoria do card
+              </option>
 
-        <input
-          type="text"
-          placeholder="Categoria"
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
-          required
-        />
+              <option value="JavaScript">JavaScript</option>
+              <option value="React">React</option>
+              <option value="Tailwind CSS">Tailwind CSS</option>
+              <option value="Node.js">Node.js</option>
+            </select>
+          </div>
+        </div>
 
-        <button type="submit">
-          {initialData ? "Salvar alterações" : "Criar"}
-        </button>
+        <div className={styles.componentArea}>
+          <label htmlFor="question">Pergunta</label>
+          <input
+            type="text"
+            id="question"
+            placeholder="Ex: O que é uma Closure no JavaScript?"
+            value={question}
+            onChange={(e) => setQuestion(e.target.value)}
+            required
+          />
+        </div>
+
+        <div className={styles.componentArea}>
+          <label htmlFor="answer">Resposta</label>
+          <textarea
+            id="answer"
+            placeholder="Ex: Uma closure é a combinação de uma função com o ambiente léxico..."
+            value={answer}
+            onChange={(e) => setAnswer(e.target.value)}
+            required
+          />
+        </div>
+
+        <div className={styles.actionArea}>
+          <button className={styles.cancelBtn} onClick={onClose}>
+            Cancelar
+          </button>
+
+          <button className={styles.saveBtn} type="submit">
+            Salvar
+          </button>
+        </div>
       </form>
     </Modal>
   );

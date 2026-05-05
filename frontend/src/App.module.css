@@ -71,7 +71,9 @@
 }
 
 .flashcardsArea {
-  background-color: pink;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(384px, 1fr));
+  gap: 2rem;
 }
 
 .emptyArea {
@@ -92,6 +94,31 @@
   }
 }
 
+.newCard {
+  background-color: var(--white);
+  border: 1px dashed #A9B4B9;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  min-height: 220px;
+  padding: 2rem;
+  cursor: pointer;
+
+  h3 {
+    font-family: var(--title-font);
+    color: #566166;
+    font-size: 1.125rem;
+    font-weight: 800;
+  }
+
+  p {
+    color: #717C82;
+    font-size: .75rem;
+  }
+}
+
 .modalOverlay {
   position: fixed;
   inset: 0;
@@ -102,16 +129,62 @@
   justify-content: center;
 }
 
-.modal {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 12px;
-  width: 300px;
+.deleteModal {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background-color: var(--white);
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 450px;
+
+  img {
+    width: 48px;
+    height: 48px;
+    align-self: center;
+  }
 }
 
-.modalActions {
+.textArea {
   display: flex;
-  justify-content: flex-end;
-  gap: 0.5rem;
-  margin-top: 1rem;
+  flex-direction: column;
+  align-items: center;
+  gap: .75rem;
+  text-align: center;
+
+  h3 {
+    font-family: var(--title-font);
+    font-size: var(--text-lg);
+    font-weight: 900;
+  }
+
+  p {
+    font-size: var(--text-sm);
+    color: #566166
+  }
+}
+
+.deleteActions {
+  display: flex;
+  gap: .75rem;
+
+  button {
+    padding: 1rem 0;
+    border-radius: 3.125rem;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: var(--button);
+    width: 100%;
+  }
+}
+
+.cancelBtn {
+  background: #E1E9EE;
+  color: #566166;
+}
+
+.deleteBtn {
+  background-color: #9E3F4E;
+  color: var(--white)
 }

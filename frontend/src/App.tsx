@@ -8,6 +8,8 @@ import emptyLogo from "./assets/empty-logo.svg";
 import { NewFlashcardButton } from "./components/NewFlashcardButton/NewFlashcardButton";
 import { Filter } from "./components/Filter/Filter";
 import { FlashcardModal } from "./components/FlashcardModal/FlashcardModal";
+import deleteBgIcon from "./assets/delete-bg-icon.svg";
+import newCardIcon from "./assets/new-card-icon.svg";
 
 export default function App() {
   const [cards, setCards] = useState<FlashcardType[]>([]);
@@ -97,6 +99,13 @@ export default function App() {
                 onDelete={setDeletingCardId}
               />
             ))}
+            <div className={styles.newCard} onClick={handleOpenCreate}>
+              <img src={newCardIcon} alt="New Card Icon" />
+              <h3>Criar novo card</h3>
+              <p>
+                Adicione um novo desafio à sua biblioteca e mantenha o ritmo.
+              </p>
+            </div>
           </div>
         ) : (
           <div className={styles.emptyArea}>
@@ -112,13 +121,32 @@ export default function App() {
 
       {deletingCardId && (
         <div className={styles.modalOverlay}>
-          <div className={styles.modal}>
-            <p>Tem certeza que deseja excluir este flashcard?</p>
+          <div className={styles.deleteModal}>
+            <img
+              className={styles.deleteBgIcon}
+              src={deleteBgIcon}
+              alt="Deletar card"
+            />
 
-            <div className={styles.modalActions}>
-              <button onClick={() => setDeletingCardId(null)}>Cancelar</button>
+            <div className={styles.textArea}>
+              <h3>Tem certeza que deseja excluir este card?</h3>
+              <p>
+                Esta ação não pode ser desfeita e o card será removido
+                permanentemente da sua biblioteca.
+              </p>
+            </div>
 
-              <button onClick={handleDelete}>Excluir</button>
+            <div className={styles.deleteActions}>
+              <button
+                className={styles.cancelBtn}
+                onClick={() => setDeletingCardId(null)}
+              >
+                Cancelar
+              </button>
+
+              <button className={styles.deleteBtn} onClick={handleDelete}>
+                Excluir
+              </button>
             </div>
           </div>
         </div>
