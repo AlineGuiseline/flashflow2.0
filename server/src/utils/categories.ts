@@ -1,1 +1,1 @@
-export const CATEGORIES = ["JavaScript", "React", "Tailwind CSS"];
+export const CATEGORIES = ["JavaScript", "React", "Tailwind CSS", "Node.js"];
